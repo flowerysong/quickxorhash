@@ -1,0 +1,53 @@
+# package options
+
+Summary:        An implementation of QuickXORHash
+Name:           @PACKAGE_NAME@
+Version:        @PACKAGE_VERSION@
+Release:        1%{?dist}
+License:        MIT
+URL:            https://flowerysong.com/
+Source0:        %{name}-%{version}.tar.xz
+BuildRequires:  setup
+BuildRequires:  openssl-devel
+
+%description
+QuickXORHash is a pox.
+
+%package        devel
+Summary:        Headers for qxh
+Requires:       %{name} = %{version}-%{release}
+
+%description    devel
+Headers for qxh
+
+%prep
+%setup -q
+
+%build
+%configure --disable-static
+
+make %{?_smp_mflags}
+
+%install
+rm -rf %{buildroot}
+make DESTDIR=%{buildroot} INSTALL_OPTS='' install
+rm -f %{buildroot}/%{_libdir}/libqxh.la
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
+%files
+%defattr(-,root,root,-)
+%{_bindir}/quickxorhash
+%{_libdir}/libqxh.so.*
+
+%files devel
+%defattr(-,root,root,-)
+%{_libdir}/libqxh.so
+%{_libdir}/pkgconfig/quickxorhash.pc
+%{_includedir}/quickxorhash.h
+
+%changelog
+* %(date "+%a %b %d %Y") (Automated RPM build) - %{version}-%{release}
+- See git log for actual changes.
