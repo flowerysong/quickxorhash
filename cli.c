@@ -6,28 +6,27 @@
 
 #include "quickxorhash.h"
 
-    int
-main( int argc, char **argv )
-{
-    FILE            *fp;
-    struct qxhash   *q;
-    uint8_t         buf[ 4096 ];
-    size_t          len;
+int
+main(int argc, char **argv) {
+    FILE *         fp;
+    struct qxhash *q;
+    uint8_t        buf[ 4096 ];
+    size_t         len;
 
-    if ( argc != 2 ) {
-        return( 1 );
+    if (argc != 2) {
+        return 1;
     }
 
-    fp = fopen( argv[ 1 ], "rb" );
+    fp = fopen(argv[ 1 ], "rb");
 
     q = qxh_new();
 
-    while (( len = fread( buf, 1, 4096, fp )) > 0 ) {
-        qxh_update( q, buf, len );
+    while ((len = fread(buf, 1, 4096, fp)) > 0) {
+        qxh_update(q, buf, len);
     }
 
-    printf( "%s\n", qxh_finalize( q ));
+    printf("%s\n", qxh_finalize(q));
 
-    qxh_free( q );
-    return( 0 );
+    qxh_free(q);
+    return 0;
 }
