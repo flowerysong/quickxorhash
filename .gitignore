@@ -3,6 +3,7 @@
 *.o
 .deps/
 .libs/
+__pycache__/
 m4/
 Makefile
 Makefile.in

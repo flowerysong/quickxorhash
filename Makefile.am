@@ -1,6 +1,8 @@
 ACLOCAL_AMFLAGS = -I m4
 AM_CFLAGS = -Wall -Wextra $(LIBCRYPTO_CFLAGS)
 
+SUBDIRS = . test
+
 pkgconfigdir = $(libdir)/pkgconfig
 
 lib_LTLIBRARIES = libqxh.la

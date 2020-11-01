@@ -1,0 +1,2 @@
+check:
+	pytest -x --verbose

@@ -15,5 +15,5 @@ AC_PROG_LIBTOOL
 
 PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto])
 
-AC_CONFIG_FILES(Makefile packaging/pkgconfig/quickxorhash.pc packaging/rpm/quickxorhash.spec)
+AC_CONFIG_FILES(Makefile test/Makefile packaging/pkgconfig/quickxorhash.pc packaging/rpm/quickxorhash.spec)
 AC_OUTPUT
