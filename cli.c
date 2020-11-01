@@ -14,10 +14,16 @@ main(int argc, char **argv) {
     size_t         len;
 
     if (argc != 2) {
+        fprintf(stderr, "Usage: quickxorhash <filename>\n");
         return 1;
     }
 
     fp = fopen(argv[ 1 ], "rb");
+
+    if (!fp) {
+        fprintf(stderr, "Failed to open %s\n", argv[ 1 ]);
+        return 1;
+    }
 
     q = qxh_new();
 
