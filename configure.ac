@@ -13,6 +13,8 @@ AC_PROG_CC_C99
 AC_PROG_INSTALL
 AC_PROG_LIBTOOL
 
+AC_SYS_LARGEFILE
+
 PKG_CHECK_MODULES([LIBCRYPTO], [libcrypto])
 
 AC_CONFIG_FILES(Makefile test/Makefile packaging/pkgconfig/quickxorhash.pc packaging/rpm/quickxorhash.spec)
