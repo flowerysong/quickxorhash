@@ -2,6 +2,8 @@
  * MIT license. See COPYING.
  */
 
+#include <config.h>
+
 #include <stdlib.h>
 #include <string.h>
 

@@ -2,6 +2,8 @@
  * MIT license. See COPYING.
  */
 
+#include <config.h>
+
 #include <stdio.h>
 
 #include "quickxorhash.h"
